@@ -72,8 +72,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -87,17 +88,21 @@ export default function RootLayout({
                 observer.observe(document.documentElement, {
                   attributes: true,
                   subtree: true,
-                  attributeFilter: ['bis_skin_checked', 'bis_register']
+                  attributeFilter: ['bis_skin_checked', 'bis_register', 'bis_use', 'data-bis-config', 'data-dynamic-id']
                 });
-                document.querySelectorAll('[bis_skin_checked],[bis_register]').forEach(function(el) {
+                document.querySelectorAll('[bis_skin_checked],[bis_register],[bis_use],[data-bis-config],[data-dynamic-id]').forEach(function(el) {
                   el.removeAttribute('bis_skin_checked');
                   el.removeAttribute('bis_register');
+                  el.removeAttribute('bis_use');
+                  el.removeAttribute('data-bis-config');
+                  el.removeAttribute('data-dynamic-id');
                 });
               })();
             `,
           }}
         />
         <script
+          suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
