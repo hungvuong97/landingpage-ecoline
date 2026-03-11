@@ -20,7 +20,11 @@ export const metadata: Metadata = {
   description:
     "Dịch vụ vận chuyển Epacket và chuyên tuyến quốc tế uy tín. Bay thẳng từ Việt Nam đi US, UK, EU, AU. Thời gian 5-7 ngày. Tracking riêng lẻ, hỗ trợ 24/24.",
   keywords:
-    "ecoline logistics, epacket, vận chuyển quốc tế, gửi hàng đi mỹ, gửi hàng đi anh, gửi hàng đi úc, gửi hàng đi châu âu, logistics việt nam",
+    "ecoline logistics, ecolinelog, ecoline log, epacket, vận chuyển quốc tế, gửi hàng đi mỹ, gửi hàng đi anh, gửi hàng đi úc, gửi hàng đi châu âu, logistics việt nam, chuyển phát nhanh quốc tế, epacket việt nam",
+  metadataBase: new URL('https://ecolinelog.vn'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: "/images/LOGO_ECOLINE_TACHNEN-01.png",
     apple: "/images/LOGO_ECOLINE_TACHNEN-01.png",
@@ -29,7 +33,35 @@ export const metadata: Metadata = {
     title: "Ecoline Logistics - Epacket & Vận Chuyển Chuyên Tuyến Toàn Cầu",
     description:
       "Dịch vụ vận chuyển Epacket và chuyên tuyến quốc tế uy tín. Bay thẳng từ Việt Nam đi US, UK, EU, AU.",
+    url: 'https://ecolinelog.vn',
+    siteName: 'Ecoline Logistics',
+    locale: 'vi_VN',
     type: "website",
+    images: [
+      {
+        url: '/images/banner.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ecoline Logistics - Vận chuyển quốc tế',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ecoline Logistics - Epacket & Vận Chuyển Chuyên Tuyến Toàn Cầu',
+    description: 'Dịch vụ vận chuyển Epacket và chuyên tuyến quốc tế uy tín. Bay thẳng từ Việt Nam đi US, UK, EU, AU.',
+    images: ['/images/banner.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -63,6 +95,32 @@ export default function RootLayout({
                 });
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Ecoline Logistics',
+              url: 'https://ecolinelog.vn',
+              logo: 'https://ecolinelog.vn/images/LOGO_ECOLINE_TACHNEN-01.png',
+              description: 'Dịch vụ vận chuyển Epacket và chuyên tuyến quốc tế uy tín. Bay thẳng từ Việt Nam đi US, UK, EU, AU. Thời gian 5-7 ngày.',
+              address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'VN',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+84-355-350-886',
+                contactType: 'customer service',
+                availableLanguage: 'Vietnamese',
+              },
+              sameAs: [
+                'https://www.facebook.com/ecolinelogistichn',
+              ],
+            }),
           }}
         />
       </head>
